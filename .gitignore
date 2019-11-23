@@ -104,3 +104,8 @@ dist
 .tern-port
 
 output
+
+.DS_Store
+._.DS_Store
+**/.DS_Store
+**/._.DS_Store
