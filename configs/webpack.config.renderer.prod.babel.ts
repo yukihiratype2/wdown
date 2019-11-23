@@ -11,7 +11,7 @@ export default merge.smart(baseConfig, {
 
   entry: path.join(__dirname, '..', 'src/index.tsx'),
   output: {
-    path: path.join(__dirname, '..', 'output/dist'),
+    path: path.join(__dirname, '..', 'output/build/dist'),
     publicPath: '',
     filename: 'renderer.prod.js',
   },

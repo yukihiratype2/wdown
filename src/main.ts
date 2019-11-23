@@ -17,7 +17,7 @@ app.on('ready', async () => {
     height: 728
   })
 
-  mainWindow.loadFile('index.html')
+  mainWindow.loadURL('file://' + __dirname + '/index.html')
 
   mainWindow.once('ready-to-show', () => {
     mainWindow.show();

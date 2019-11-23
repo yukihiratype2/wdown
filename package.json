@@ -8,18 +8,47 @@
     "build-renderer": "cross-env NODE_ENV=producton webpack --config configs/webpack.config.renderer.prod.babel.ts",
     "dev": "yarn start-renderer-dev",
     "start-renderer-dev": "cross-env NODE_ENV=development webpack-dev-server --config configs/webpack.config.renderer.dev.babel.ts",
-    "start-main-dev": "cross-env HOT=1 NODE_ENV=development electron ./src/main.babel.js"
+    "start-main-dev": "cross-env HOT=1 NODE_ENV=development electron ./src/main.babel.js",
+    "package": "yarn build && yarn electron-builder",
+    "package-darwin": "electron-builder",
+    "package-win": "electron-builder build --win --x64"
   },
-  "main": "index.js",
+  "main": "app/main.js",
   "author": "natsuki <yukihiratype2@live.com>",
   "license": "MIT",
   "build": {
     "productName": "ElectronReactTypescript",
     "appId": "org.natsuki.ElectronReactTypescript",
-    "app": [
-      "output/",
-      "package.json"
-    ]
+    "files": [
+      "package.json",
+      {
+        "from": "output/build",
+        "to": "app",
+        "filter": ["**/*"]
+      },
+      {
+        "from": "src",
+        "to": "app",
+        "filter": ["index.html"]
+      }
+    ],
+    "directories": {
+      "output": "output/release"
+    },
+    "dmg": {
+      "contents": [
+        {
+          "x": 110,
+          "y": 150
+        },
+        {
+          "x": 240,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    }
   },
   "devDependencies": {
     "@babel/cli": "^7.7.0",
@@ -37,7 +66,6 @@
     "@typescript-eslint/parser": "^2.8.0",
     "babel-loader": "^8.0.6",
     "concurrently": "^5.0.0",
-    "copy-webpack-plugin": "^5.0.5",
     "core-js": "3",
     "cross-env": "^6.0.3",
     "css-loader": "^3.2.0",
