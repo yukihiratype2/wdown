@@ -24,12 +24,16 @@
       {
         "from": "output/build",
         "to": "app",
-        "filter": ["**/*"]
+        "filter": [
+          "**/*"
+        ]
       },
       {
         "from": "src",
         "to": "app",
-        "filter": ["index.html"]
+        "filter": [
+          "index.html"
+        ]
       }
     ],
     "directories": {
@@ -71,9 +75,13 @@
     "css-loader": "^3.2.0",
     "electron": "^7.1.2",
     "electron-builder": "^21.2.0",
-    "eslint": "^6.6.0",
+    "electron-devtools-installer": "^2.2.4",
+    "eslint": "6.1.0",
     "eslint-config-airbnb": "^18.0.1",
-    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^1.7.0",
     "node-sass": "^4.13.0",
     "sass-loader": "^8.0.0",
     "scss-loader": "^0.0.1",
@@ -87,6 +95,7 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
+    "electron-debug": "^3.0.1",
     "file-loader": "^4.3.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",

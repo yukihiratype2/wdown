@@ -6,5 +6,5 @@ render(
   <div className="root">
     dio
   </div>,
-  document.querySelector('#root')
-)
+  document.querySelector('#root'),
+);
