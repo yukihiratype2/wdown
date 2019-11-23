@@ -1,9 +1,7 @@
 import path from 'path'
 import webpack from 'webpack';
-import { dependencies } from '../package.json';
 
 const config: webpack.Configuration = {
-  externals: [...Object.keys(dependencies || {})],
   module: {
     rules: [{
       test: /\.tsx?$/,

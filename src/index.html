@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>wdown</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script>
+    let script = '';
+    if (process.env.NODE_ENV === 'development') {
+      script = 'http://localhost:1212/dist/renderer.dev.js'
+    } else {
+      script = './dist/renderer.prod.js'
+    }
+    document.write(`<script src="${script}"><\/script>`)
+  </script>
+  <script src="http://localhost:1212/dist/renderer.dev.js"></script>
+</body>
+</html>
