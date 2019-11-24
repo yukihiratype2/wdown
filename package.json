@@ -93,9 +93,10 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
+    "@hot-loader/react-dom": "^16.11.0",
+    "electron": "^7.1.2",
     "electron-debug": "^3.0.1",
     "electron-devtools-installer": "^2.2.4",
-    "electron": "^7.1.2",
     "file-loader": "^4.3.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",

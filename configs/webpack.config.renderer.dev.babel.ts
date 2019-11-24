@@ -1,8 +1,8 @@
 import merge from 'webpack-merge';
-import baseConfig from './webpack.config.base';
 import path from 'path';
 import webpack from 'webpack';
 import { spawn } from 'child_process';
+import baseConfig from './webpack.config.base';
 
 
 const port = process.env.PORT || 1212;
@@ -14,7 +14,8 @@ export default merge.smart(baseConfig, {
   target: 'electron-renderer',
 
   entry: [
-    require.resolve('../src/index.tsx')
+    'react-hot-loader/patch',
+    require.resolve('../src/index.tsx'),
   ],
   output: {
     publicPath,
@@ -26,18 +27,18 @@ export default merge.smart(baseConfig, {
         test: /\.global\.(scss|sass)$/,
         use: [
           {
-            loader: 'style-loader'
+            loader: 'style-loader',
           },
           {
             loader: 'css-loader',
             options: {
-              sourceMap: true
-            }
+              sourceMap: true,
+            },
           },
           {
-            loader: 'sass-loader'
-          }
-        ]
+            loader: 'sass-loader',
+          },
+        ],
       },
       {
         test: /^((?!\.global).)*\.(scss|sass)$/,
@@ -51,25 +52,30 @@ export default merge.smart(baseConfig, {
               modules: true,
               sourceMap: true,
               importLoaders: 1,
-              localIdentName: '[name]__[local]__[hash:base64:5]'
-            }
+              localIdentName: '[name]__[local]__[hash:base64:5]',
+            },
           },
           {
-            loader: 'sass-loader'
-          }
-        ]
+            loader: 'sass-loader',
+          },
+        ],
       },
-    ]
+    ],
+  },
+  resolve: {
+    alias: {
+      'react-dom': '@hot-loader/react-dom',
+    },
   },
   plugins: [
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.EnvironmentPlugin({
-      NODE_ENV: 'development'
-    })
+      NODE_ENV: 'development',
+    }),
   ],
   node: {
     __dirname: false,
-    __filename: false
+    __filename: false,
   },
   devServer: {
     port,
@@ -78,15 +84,14 @@ export default merge.smart(baseConfig, {
     contentBase: path.join(__dirname, 'dist'),
     before() {
       if (true) {
-        console.log('Starting Main Process...');
         spawn('npm', ['run', 'start-main-dev'], {
           shell: true,
           env: process.env,
-          stdio: 'inherit'
+          stdio: 'inherit',
         })
-          .on('close', code => process.exit(code))
-          .on('error', spawnError => console.error(spawnError));
+          .on('close', (code) => process.exit(code))
+          .on('error', (spawnError) => console.error(spawnError));
       }
-    }
-  }
+    },
+  },
 } as webpack.Configuration);

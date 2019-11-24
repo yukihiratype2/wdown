@@ -1,4 +1,4 @@
-import path from 'path'
+import path from 'path';
 import webpack from 'webpack';
 
 const config: webpack.Configuration = {
@@ -9,9 +9,9 @@ const config: webpack.Configuration = {
       use: [{
         loader: 'babel-loader',
         options: {
-          cacheDirectory: true
-        }
-      }, 'ts-loader']
+          cacheDirectory: true,
+        },
+      }, 'ts-loader'],
     }],
   },
   output: {
@@ -19,8 +19,11 @@ const config: webpack.Configuration = {
     libraryTarget: 'commonjs2',
   },
   plugins: [
-    new webpack.NamedModulesPlugin()
-  ]
-}
+    new webpack.NamedModulesPlugin(),
+  ],
+  resolve: {
+    extensions: ['.js', '.ts', '.tsx', '.json']
+  },
+};
 
 export default config;
