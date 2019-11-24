@@ -1,3 +1,5 @@
+/* eslint import/no-extraneous-dependencies: off */
+
 import merge from 'webpack-merge';
 import path from 'path';
 import webpack from 'webpack';
@@ -83,7 +85,7 @@ export default merge.smart(baseConfig, {
     hot: true,
     contentBase: path.join(__dirname, 'dist'),
     before() {
-      if (true) {
+      if (process.env.INVOKE_MAIN) {
         spawn('npm', ['run', 'start-main-dev'], {
           shell: true,
           env: process.env,

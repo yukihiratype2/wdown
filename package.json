@@ -6,9 +6,9 @@
     "build": "concurrently \"yarn build-main\" \"yarn build-renderer\"",
     "build-main": "cross-env NODE_ENV=producton webpack --config configs/webpack.config.main.prod.babel.ts",
     "build-renderer": "cross-env NODE_ENV=producton webpack --config configs/webpack.config.renderer.prod.babel.ts",
-    "dev": "yarn start-renderer-dev",
+    "dev": "cross-env INVOKE_MAIN=1 yarn start-renderer-dev",
     "start-renderer-dev": "cross-env NODE_ENV=development webpack-dev-server --config configs/webpack.config.renderer.dev.babel.ts",
-    "start-main-dev": "cross-env HOT=1 NODE_ENV=development electron ./src/main.babel.js",
+    "start-main-dev": "cross-env NODE_ENV=development electron ./src/main.babel.js",
     "package": "yarn build && yarn electron-builder",
     "package-darwin": "electron-builder",
     "package-win": "electron-builder build --win --x64"
