@@ -1,7 +1,9 @@
+/* eslint import/no-extraneous-dependencies: off */
+
 import merge from 'webpack-merge';
-import baseConfig from './webpack.config.base';
 import path from 'path';
 import webpack from 'webpack';
+import baseConfig from './webpack.config.base';
 
 export default merge.smart(baseConfig, {
   mode: 'production',
@@ -19,11 +21,11 @@ export default merge.smart(baseConfig, {
   },
   node: {
     __dirname: false,
-    __filename: false
+    __filename: false,
   },
   plugins: [
     new webpack.EnvironmentPlugin({
-      NODE_ENV: 'production'
+      NODE_ENV: 'production',
     }),
   ],
 } as webpack.Configuration);

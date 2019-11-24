@@ -98,6 +98,7 @@
     "electron-debug": "^3.0.1",
     "electron-devtools-installer": "^2.2.4",
     "file-loader": "^4.3.0",
+    "normalize.css": "^8.0.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-hot-loader": "^4.12.18"

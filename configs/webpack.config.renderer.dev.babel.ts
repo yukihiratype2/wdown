@@ -26,6 +26,21 @@ export default merge.smart(baseConfig, {
   module: {
     rules: [
       {
+        test: /^((?!\.global).)*\.css$/,
+        use: [
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              sourceMap: true,
+            },
+          },
+        ],
+      },
+      {
         test: /\.global\.(scss|sass)$/,
         use: [
           {
@@ -46,7 +61,7 @@ export default merge.smart(baseConfig, {
         test: /^((?!\.global).)*\.(scss|sass)$/,
         use: [
           {
-            loader: 'style-loader'
+            loader: 'style-loader',
           },
           {
             loader: 'css-loader',
