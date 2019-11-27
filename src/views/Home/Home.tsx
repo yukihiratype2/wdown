@@ -1,10 +1,14 @@
 import React from 'react';
-import './Home.css';
+import styled from 'styled-components';
+
+const Wrapper = styled.h1`
+background-color: red;
+`;
 
 const Home = () => (
-  <div className="home">
-    Hello World
-  </div>
+  <Wrapper>
+    nani
+  </Wrapper>
 );
 
 export default Home;

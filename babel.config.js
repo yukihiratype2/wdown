@@ -19,6 +19,7 @@ module.exports = (api) => {
     ],
     plugins: [
       'react-hot-loader/babel',
+      'babel-plugin-styled-components',
     ],
   };
 };
