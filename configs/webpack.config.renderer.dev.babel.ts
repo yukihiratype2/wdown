@@ -33,7 +33,7 @@ export default merge.smart(baseConfig, {
             loader: 'css-loader',
             options: {
               importLoaders: 1,
-              modules: true,
+              modules: false,
             },
           },
         ],

@@ -1,8 +1,8 @@
 import React from 'react';
-import style from './Home.css';
+import './Home.css';
 
 const Home = () => (
-  <div className={style.home}>
+  <div className="home">
     Hello World
   </div>
 );
