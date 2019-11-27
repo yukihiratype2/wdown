@@ -22,7 +22,7 @@ const config: webpack.Configuration = {
     new webpack.NamedModulesPlugin(),
   ],
   resolve: {
-    extensions: ['.js', '.ts', '.tsx', '.json']
+    extensions: ['.js', '.ts', '.tsx', '.json'],
   },
 };
 

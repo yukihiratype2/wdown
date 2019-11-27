@@ -26,16 +26,14 @@ export default merge.smart(baseConfig, {
   module: {
     rules: [
       {
-        test: /^((?!\.global).)*\.css$/,
+        test: /\.css$/,
         use: [
-          {
-            loader: 'style-loader',
-          },
+          'style-loader',
           {
             loader: 'css-loader',
             options: {
+              importLoaders: 1,
               modules: true,
-              sourceMap: true,
             },
           },
         ],
