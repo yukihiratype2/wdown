@@ -1,7 +1,9 @@
+/* eslint import/no-extraneous-dependencies: off */
+
 import merge from 'webpack-merge';
-import baseConfig from './webpack.config.base';
 import path from 'path';
 import webpack from 'webpack';
+import baseConfig from './webpack.config.base';
 
 
 export default merge.smart(baseConfig, {
@@ -21,24 +23,24 @@ export default merge.smart(baseConfig, {
         test: /\.global\.(scss|sass)$/,
         use: [
           {
-            loader: 'style-loader'
+            loader: 'style-loader',
           },
           {
             loader: 'css-loader',
             options: {
-              sourceMap: true
-            }
+              sourceMap: true,
+            },
           },
           {
-            loader: 'sass-loader'
-          }
-        ]
+            loader: 'sass-loader',
+          },
+        ],
       },
       {
         test: /^((?!\.global).)*\.(scss|sass)$/,
         use: [
           {
-            loader: 'style-loader'
+            loader: 'style-loader',
           },
           {
             loader: 'css-loader',
@@ -46,24 +48,24 @@ export default merge.smart(baseConfig, {
               modules: true,
               sourceMap: true,
               importLoaders: 1,
-              localIdentName: '[name]__[local]__[hash:base64:5]'
-            }
+              localIdentName: '[name]__[local]__[hash:base64:5]',
+            },
           },
           {
-            loader: 'sass-loader'
-          }
-        ]
+            loader: 'sass-loader',
+          },
+        ],
       },
-    ]
+    ],
   },
   plugins: [
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.EnvironmentPlugin({
-      NODE_ENV: 'production'
-    })
+      NODE_ENV: 'production',
+    }),
   ],
   node: {
     __dirname: false,
-    __filename: false
+    __filename: false,
   },
 } as webpack.Configuration);
