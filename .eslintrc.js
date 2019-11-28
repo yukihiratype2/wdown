@@ -8,7 +8,8 @@ module.exports = {
         "airbnb",
         "plugin:react/recommended",
         // "plugin:@typescript-eslint/recommended",
-        "plugin:import/typescript"
+        "plugin:import/typescript",
+        "plugin:import/errors"
     ],
     "globals": {
         "Atomics": "readonly",
@@ -27,9 +28,14 @@ module.exports = {
         "react-hooks",
         "@typescript-eslint",
     ],
-    rules: {
+    "rules": {
         "react/jsx-filename-extension": [1, { "extensions": ["tsx"] }],
         "react-hooks/rules-of-hooks": "error",
         // "react-hooks/exhaustive-deps": "warn"
     },
+    "settings": {
+        "import/resolver": {
+            "typescript": {}
+        }
+    }
 };
