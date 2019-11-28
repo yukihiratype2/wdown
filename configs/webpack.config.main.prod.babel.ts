@@ -17,7 +17,7 @@ export default merge.smart(baseConfig, {
     filename: 'main.js',
   },
   module: {
-    rules: []
+    rules: [],
   },
   node: {
     __dirname: false,
