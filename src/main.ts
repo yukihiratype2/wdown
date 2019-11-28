@@ -13,13 +13,11 @@ async function installExtensions() {
   return installExtension(REACT_DEVELOPER_TOOLS);
 }
 
-app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
-    app.quit();
+async function openMainWindow():Promise<null> {
+  if (mainWindow !== null) {
+    return;
   }
-});
 
-app.on('ready', async () => {
   if (ENABLE_DEBUG) {
     await installExtensions();
     electronDebug();
@@ -44,4 +42,18 @@ app.on('ready', async () => {
   mainWindow.on('closed', () => {
     mainWindow = null;
   });
+}
+
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') {
+    app.quit();
+  }
+});
+
+app.on('activate', async () => {
+  await openMainWindow();
+});
+
+app.on('ready', async () => {
+  await openMainWindow();
 });
