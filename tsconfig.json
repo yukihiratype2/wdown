@@ -16,6 +16,7 @@
       "utils/*": ["src/utils/*"],
       "views/*": ["src/views/*"],
       "components/*": ["src/components/*"],
+      "store/*": ["src/store/*"],
       "@/*": ["src/*"]
     }
   },
