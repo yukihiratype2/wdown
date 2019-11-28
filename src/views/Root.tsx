@@ -1,6 +1,6 @@
 import { hot } from 'react-hot-loader/root';
 import React from 'react';
-import Home from './Home/Home';
+import Frame from './Frame/Frame';
 
-const App = () => <Home />;
+const App = () => <Frame />;
 export default hot(App);
