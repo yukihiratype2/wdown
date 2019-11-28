@@ -24,9 +24,12 @@ module.exports = {
     },
     "plugins": [
         "react",
+        "react-hooks",
         "@typescript-eslint",
     ],
     rules: {
         "react/jsx-filename-extension": [1, { "extensions": ["tsx"] }],
+        "react-hooks/rules-of-hooks": "error",
+        // "react-hooks/exhaustive-deps": "warn"
     },
 };

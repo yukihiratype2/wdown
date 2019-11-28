@@ -12,8 +12,16 @@ background:transparent;
 text-align: center;
 `;
 
-const Header = () => (
-  <Wrapper>header</Wrapper>
-);
+const SHOW = true;
+// const HIDDEN = false;
+
+
+const Header = () => {
+  const headerVisible = SHOW;
+  if (headerVisible) {
+    return <Wrapper>header</Wrapper>;
+  }
+  return <div />;
+};
 
 export default Header;
