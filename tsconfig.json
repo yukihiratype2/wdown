@@ -13,10 +13,10 @@
     "lib": ["es2015", "dom"],
     "allowSyntheticDefaultImports": true,
     "paths": {
-      "utils/*": ["src/utils/*"],
-      "views/*": ["src/views/*"],
-      "components/*": ["src/components/*"],
-      "store/*": ["src/store/*"],
+      "Utils/*": ["src/utils/*"],
+      "Views/*": ["src/views/*"],
+      "Components/*": ["src/components/*"],
+      "Store/*": ["src/store/*"],
       "@/*": ["src/*"]
     }
   },
