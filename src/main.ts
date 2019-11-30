@@ -8,12 +8,14 @@ const ENABLE_DEBUG = process.env.NODE_ENV === 'development' || process.env.DEBUG
 const { default: installExtension, REACT_DEVELOPER_TOOLS } = !ENABLE_DEBUG ? { default: null, REACT_DEVELOPER_TOOLS: null } : require('electron-devtools-installer');
 const electronDebug = !ENABLE_DEBUG ? null : require('electron-debug');
 
+app.commandLine.appendSwitch('disable-backgrounding-occluded-windows', 'true')
 
-async function installExtensions() {
+
+async function installExtensions(): Promise<void> {
   return installExtension(REACT_DEVELOPER_TOOLS);
 }
 
-async function openMainWindow():Promise<null> {
+async function openMainWindow(): Promise<void> {
   if (mainWindow !== null) {
     return;
   }
