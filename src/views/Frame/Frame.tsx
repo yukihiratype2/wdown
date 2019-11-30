@@ -11,9 +11,9 @@ height: 100%;
 display: flex;
 `;
 
-const Frame = () => (
+const Frame = (): React.ReactElement => (
   <Wrapper>
-    <Header />
+    <Header title="nonoaafdfdfdfdfdfdfd" />
     <Sidebar />
     <Workbench />
   </Wrapper>
