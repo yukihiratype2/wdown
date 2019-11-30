@@ -26,10 +26,10 @@ const config: webpack.Configuration = {
   resolve: {
     extensions: ['.js', '.ts', '.tsx', '.json'],
     alias: {
-      views: path.resolve(__dirname, '..', 'src/views/'),
-      utils: path.resolve(__dirname, '..', 'src/utils/'),
-      components: path.resolve(__dirname, '..', 'src/components/'),
-      store: path.resolve(__dirname, '..', 'src/store/'),
+      Views: path.resolve(__dirname, '..', 'src/views/'),
+      Utils: path.resolve(__dirname, '..', 'src/utils/'),
+      Components: path.resolve(__dirname, '..', 'src/components/'),
+      Store: path.resolve(__dirname, '..', 'src/store/'),
       '@': path.resolve(__dirname, '..', 'src/'),
     },
   },
