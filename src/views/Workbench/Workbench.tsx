@@ -8,8 +8,11 @@ background-color: red;
 flex: auto;
 `;
 
-const Workbench = () => (
-  <Wrapper>body</Wrapper>
+const Workbench: React.FunctionComponent = (): React.ReactElement => (
+  <Wrapper>
+    k
+  </Wrapper>
 );
+
 
 export default Workbench;
